@@ -1,1 +1,29 @@
-<p>table works!</p>
+<div class="container-fluid">
+    <a routerLink="./" class="btn btn-primary">Back</a>
+    <table class="table table-sm table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Created On</th>
+                <th scope="col">Updated On</th>
+                <th scope="col">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (entry of entries; track entry.id) {
+                <tr>
+                    <td class="w-25">
+                        {{ entry.createdOnDate }}<br>
+                        {{ entry.createdOnTime }}
+                    </td>
+                    <td class="w-25">
+                        {{ entry.updatedOnDate }}<br>
+                        {{ entry.updatedOnTime }}
+                    </td>
+                    <td class="w-50">
+                        {{ entry.title }}
+                    </td>
+                </tr>
+           }
+        </tbody>
+    </table>
+</div>

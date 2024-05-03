@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ENTRIES } from '../../table';
 
 @Component({
   selector: 'app-table',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './table.component.css'
 })
 export class TableComponent {
-
+  entries = ENTRIES;
 }
+
+ 
