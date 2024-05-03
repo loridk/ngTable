@@ -9,21 +9,20 @@
             </tr>
         </thead>
         <tbody>
-            @for (entry of entries; track entry.id) {
-                <tr>
-                    <td class="w-25">
-                        {{ entry.createdOnDate }}<br>
-                        {{ entry.createdOnTime }}
-                    </td>
-                    <td class="w-25">
-                        {{ entry.updatedOnDate }}<br>
-                        {{ entry.updatedOnTime }}
-                    </td>
-                    <td class="w-50">
-                        {{ entry.title }}
-                    </td>
-                </tr>
-           }
+            <tr *ngFor="let entry of entries | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td class="w-25">
+                    {{ entry.createdOnDate }}<br>
+                    {{ entry.createdOnTime }}
+                </td>
+                <td class="w-25">
+                    {{ entry.updatedOnDate }}<br>
+                    {{ entry.updatedOnTime }}
+                </td>
+                <td class="w-50">
+                    {{ entry.title }}
+                </td>
+            </tr>
         </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
