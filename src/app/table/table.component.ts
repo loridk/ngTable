@@ -44,8 +44,8 @@ export class TableComponent {
   
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch(property) {
-        case 'dateReceived': return new Date(item.createdOn).getTime();
-        case 'dateReceived': return new Date(item.updatedOn).getTime();
+        case 'createdOn': return new Date(item.createdOn).getTime();
+        case 'updatedOn': return new Date(item.updatedOn).getTime();
         default: return item[property as keyof Entry] as string;
       }
     }
