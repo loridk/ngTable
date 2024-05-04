@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material/table'
 export class TableComponent {
   entries = ENTRIES;
   pageSize = 10;
+  showFirstLastButtons = true;
 
   displayedColumns = ['createdOn', 'updatedOn', 'title'];
   dataSource: MatTableDataSource<Entry>;
