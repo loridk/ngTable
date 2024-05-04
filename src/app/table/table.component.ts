@@ -1,4 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ENTRIES, Entry } from '../../table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
@@ -14,7 +15,8 @@ import { MatTableModule } from '@angular/material/table'
   imports: [ 
     MatPaginator,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    RouterModule
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
