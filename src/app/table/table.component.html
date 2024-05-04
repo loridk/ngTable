@@ -1,28 +1,32 @@
 <div class="container-fluid">
-    <a routerLink="./" class="btn btn-primary">Back</a>
-    <table class="table table-sm table-hover align-middle">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">Created On</th>
-                <th scope="col">Updated On</th>
-                <th scope="col">Title</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let entry of entries | paginate: { itemsPerPage: 10, currentPage: p }">
-                <td class="w-25">
-                    {{ entry.createdOnDate }}<br>
-                    {{ entry.createdOnTime }}
-                </td>
-                <td class="w-25">
-                    {{ entry.updatedOnDate }}<br>
-                    {{ entry.updatedOnTime }}
-                </td>
-                <td class="w-50">
-                    {{ entry.title }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <a routerLink="./" class="btn btn-primary mb-2">Back</a>
+    <div>
+        <table class="mat-elevation-z8" mat-table [dataSource]="dataSource"  matSort>
+      
+          <ng-container matColumnDef="createdOn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Created Date"> Created On</th>
+            <td mat-cell *matCellDef="let element"> 
+                {{ element.createdOn }} 
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="updatedOn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Updated Date"> Updated On </th>
+            <td mat-cell *matCellDef="let element"> 
+                {{ element.updatedOn }}   
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Title"> Title </th>
+            <td mat-cell *matCellDef="let element"> 
+                {{ element.title }}    
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator  [pageSize]="pageSize"></mat-paginator>
+    </div>
 </div>

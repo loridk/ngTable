@@ -3,6 +3,7 @@ import { AppComponent } from './app/app.component';
 import { provideRouter, Routes } from '@angular/router';
 import { HomeComponent } from './app/home/home.component';
 import { TableComponent } from './app/table/table.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const routes: Routes = [
   { path: '', title: 'Home', component: HomeComponent },
@@ -10,5 +11,5 @@ const routes: Routes = [
 ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
+  providers: [provideRouter(routes), provideAnimationsAsync()],
 }).catch((err) => console.error(err));
